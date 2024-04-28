@@ -1,0 +1,11 @@
+import "./App.css";
+import { Tic_Tac_Toe } from "./Projects/Tic_Tac_Toe/Tic_Tac_Toe";
+function App() {
+  return (
+    <div className="App">
+      <Tic_Tac_Toe />
+    </div>
+  );
+}
+
+export default App;
