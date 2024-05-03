@@ -4,6 +4,7 @@ import "./style.css";
 export const Game = () => {
   const [squares, setSquares] = useState(new Array(9).fill(null));
   const [isXnext, setIsXnext] = useState(true);
+  const [history, setHistory] = useState([Array(9).fill(null)]);
 
   ///mark X or O on click - function
   const handleClick = (index) => {
@@ -18,8 +19,10 @@ export const Game = () => {
       squaresCopy[index] = "O";
     }
     setSquares(squaresCopy);
+    setHistory([...history, squaresCopy]);
     setIsXnext(!isXnext);
   };
+  console.log(history);
   //Winner
   const winnig_patterns = [
     [0, 1, 2],
@@ -50,7 +53,8 @@ export const Game = () => {
   //reset handler
   const resetHandler = () => {
     setSquares(new Array(9).fill(null));
-    setIsXnext(truew);
+    setIsXnext(true);
+    setHistory([Array(9).fill(null)]);
   };
 
   //current status: players turn or winner
@@ -60,6 +64,12 @@ export const Game = () => {
     ? "Next player is X"
     : "Next player is O";
 
+  //move to history
+  const moveToHistory = (step) => {
+    setSquares(history[step]);
+    setHistory(history.slice(0, step + 1));
+    setIsXnext(step % 2 === 0);
+  };
   return (
     <>
       <h1>Tic Tac Toe</h1>
@@ -71,12 +81,18 @@ export const Game = () => {
       <div className="game">
         <div className="game-board">
           {squares.map((_, i) => (
-            <button className="cell" onClick={() => handleClick(i)}>
+            <button key={i} className="cell" onClick={() => handleClick(i)}>
               {squares[i]}
             </button>
           ))}
         </div>
-        <div className="game-info">//info</div>
+        <div className="game-info">
+          {history.map((_, i) => (
+            <button key={i} onClick={() => moveToHistory(i)}>
+              Move to step {i}
+            </button>
+          ))}
+        </div>
       </div>
     </>
   );
