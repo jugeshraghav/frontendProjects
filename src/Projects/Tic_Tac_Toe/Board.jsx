@@ -1,22 +1,19 @@
 import { useState } from "react";
 import { Square } from "./Square";
 import "./style.css";
-export const Board = () => {
-  const [isXNext, setIsXNext] = useState(true);
-  const [squares, setSquares] = useState(new Array(9).fill(null));
+export const Board = ({ xIsNext, squares, onPlay }) => {
   function handleClick(i) {
     if (squares[i] || calculateWinner(squares)) {
       return;
     }
     const nextSquares = squares.slice(); //❓why cant we directly update the array
-    if (isXNext) {
+    if (xIsNext) {
       nextSquares[i] = "X";
     } else {
       nextSquares[i] = "O";
     }
 
-    setSquares(nextSquares);
-    setIsXNext(!isXNext);
+    onPlay(nextSquares);
   }
 
   function calculateWinner(squares) {
@@ -49,7 +46,7 @@ export const Board = () => {
   if (winner) {
     status = "Winner: " + winner;
   } else {
-    status = "Next player: " + (isXNext ? "X" : "O");
+    status = "Next player: " + (xIsNext ? "X" : "O");
   }
 
   return (

@@ -1,5 +1,12 @@
 .square {
-  width: 50px;
-  height: 50px;
-  font-weight: bold;
+  width: 100px;
+  height: 100px;
+  font-size: 36px;
+  border: 2px solid grey;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
+
+/* .board-row {
+  height: 200px;
+} */
