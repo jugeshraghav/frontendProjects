@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./style.css";
 
-export const Game = () => {
+export const TicTacToe = () => {
   const [squares, setSquares] = useState(new Array(9).fill(null));
   const [isXnext, setIsXnext] = useState(true);
   const [history, setHistory] = useState([Array(9).fill(null)]);

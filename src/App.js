@@ -1,10 +1,13 @@
 import "./App.css";
-import { Game } from "./Projects/TicTacToe/Game";
+import { Carousel } from "./Projects/Carousel/Carousel";
+
+import { TicTacToe } from "./Projects/TicTacToe/TicTacToe";
 
 function App() {
   return (
     <div className="App">
-      <Game />
+      <TicTacToe />
+      <Carousel />
     </div>
   );
 }
