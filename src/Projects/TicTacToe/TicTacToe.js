@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
 
 export const TicTacToe = () => {
@@ -22,7 +22,7 @@ export const TicTacToe = () => {
     setHistory([...history, squaresCopy]);
     setIsXnext(!isXnext);
   };
-  console.log(history);
+
   //Winner
   const winnig_patterns = [
     [0, 1, 2],
@@ -70,6 +70,11 @@ export const TicTacToe = () => {
     setHistory(history.slice(0, step + 1));
     setIsXnext(step % 2 === 0);
   };
+  console.log("before useEffect");
+  useEffect(() => {
+    console.log("useEffect");
+  }, []);
+  console.log("after useEffect");
   return (
     <>
       <h1>Tic Tac Toe</h1>
