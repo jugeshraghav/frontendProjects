@@ -1,0 +1,15 @@
+//App layout
+.layout {
+  display: flex;
+  background-color: red;
+}
+
+//single mail item
+.mail-item {
+}
+
+//Navbar
+.navbar {
+  display: flex;
+  flex-direction: column;
+}
