@@ -10,12 +10,13 @@ import { FilterBox } from "./components/FilterBox.jsx";
 function App() {
   return (
     <>
-      <div className="layout">
-        <div>
+      <h1 className="header">Mail App</h1>
+      <div style={{ display: "flex", gap: "50px" }}>
+        <div style={{ width: "10%" }}>
           <Navbar />
-          <FilterBox />
         </div>
-        <div>
+        <div style={{ width: "80%" }}>
+          <FilterBox />
           <Routes>
             <Route path="/" element={<Inbox />} />
             <Route path="/trash" element={<Trash />} />

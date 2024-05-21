@@ -1,9 +1,11 @@
 //App layout
 .layout {
-  display: flex;
-  background-color: red;
+  color: blue;
 }
 
+.header {
+  text-align: center;
+}
 //single mail item
 .mail-item {
 }

@@ -6,20 +6,28 @@ export const FilterBox = () => {
     useContext(MailContext);
   return (
     <>
-      <div>
+      <div
+        style={{
+          border: "1px solid black",
+          padding: "10px",
+          margin: "10px",
+          display: "flex",
+          gap: "30px",
+        }}
+      >
         <label>
           <input
             type="checkbox"
-            checked={showStarred}
-            onChange={() => setShowStarred(!showStarred)}
+            checked={showUnread}
+            onChange={() => setShowUnread(!showUnread)}
           />
           Show Unread
         </label>
         <label>
           <input
             type="checkbox"
-            checked={showUnread}
-            onChange={() => setShowUnread(!showUnread)}
+            checked={showStarred}
+            onChange={() => setShowStarred(!showStarred)}
           />
           Show starred
         </label>

@@ -4,11 +4,12 @@ import { MailContext } from "../contexts/MailContext";
 import { MailItem } from "../components/MailItem";
 export const Inbox = () => {
   const { allMails, showUnread, showStarred } = useContext(MailContext);
+  console.log(showStarred, showUnread);
   const starredMails = showStarred
     ? allMails.filter(({ isStarred }) => isStarred === true)
     : allMails;
   const filteredMails = showUnread
-    ? allMails.filter(({ unread }) => unread === true)
+    ? starredMails.filter(({ unread }) => unread === true)
     : starredMails;
   return (
     <>

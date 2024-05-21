@@ -9,8 +9,18 @@ export const MailItem = ({ mail }) => {
   const isMailInSpam = spam.find((spamMail) => spamMail.mId === mail.mId);
   return (
     <>
-      <div key={mail.mId} className="mail-item">
-        <div>
+      <div
+        key={mail.mId}
+        className="mail-item"
+        style={{ border: "1px solid black", padding: "5px", margin: "5px" }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           <h5>Subject : {mail.subject}</h5>
           <button onClick={() => toggleStarred(mail.mId)}>
             {mail.isStarred ? "unstar" : "star"}
@@ -18,7 +28,13 @@ export const MailItem = ({ mail }) => {
         </div>
 
         <p>{mail.content}</p>
-        <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           <div>
             <NavLink to={`/mail/${mail.mId}`}>View Details</NavLink>
           </div>
@@ -27,7 +43,7 @@ export const MailItem = ({ mail }) => {
               {isMailInTrash ? "in Trash" : "Delete"}
             </button>
             <button onClick={() => toggleUnread(mail.mId)}>
-              {mail.unread ? "Mark as Unread" : "already read"}
+              {mail.unread ? "Read" : "Unread"}
             </button>
             <button onClick={() => addToSpam(mail)}>
               {isMailInSpam ? "in Spam" : "Report Spam"}
