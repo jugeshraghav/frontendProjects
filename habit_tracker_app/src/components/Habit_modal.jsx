@@ -9,6 +9,7 @@ export const Habit_Modal = () => {
   const [startDate, setStartDate] = useState("");
   const newHabit = {
     habit_id: uuid(),
+    habit,
     goal,
     repeat,
     startDate,

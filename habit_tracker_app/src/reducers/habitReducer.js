@@ -33,7 +33,7 @@ export const habitReducer = (state = initial_state, action) => {
         archive: [...state.archive, payload],
       };
     case "UNARCHIVE_HABIT":
-      const upadtedArchives = state.archives.filter(
+      const upadtedArchives = state.archive.filter(
         ({ habit_id }) => habit_id != payload.habit_id
       );
       return {
