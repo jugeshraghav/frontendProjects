@@ -16,10 +16,6 @@ export const Home = () => {
         gap: "40px",
       }}
     >
-      <Typography variant="h4" color="primary">
-        Your Restaurant App
-      </Typography>
-
       {/* Cusine selectors */}
       <Box>
         <Typography
