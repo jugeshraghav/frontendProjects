@@ -16,6 +16,9 @@ export const RestaurantDetails = () => {
     (res) => res.name === restaurantName
   );
   const ratings = currentRestaurant?.ratings;
+  const sumOfRatings = ratings.reduce((acc, curr) => acc + curr.rating, 0);
+  const averageRating = sumOfRatings / ratings.length;
+
   const menuItems = currentRestaurant.menu
     .reduce((acc, { name }) => [...acc, name], [])
     .join(" ,");
@@ -27,7 +30,7 @@ export const RestaurantDetails = () => {
   const closeModalHandler = () => {
     setIsModalOpen(false);
   };
-  console.log(isModalOpen);
+
   return (
     <>
       <ReviewModal
@@ -83,7 +86,7 @@ export const RestaurantDetails = () => {
               Address : {currentRestaurant?.address}{" "}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Average Rating : {currentRestaurant?.averageRating}{" "}
+              Average Rating : {averageRating}{" "}
             </Typography>
           </Box>
           <Box>
