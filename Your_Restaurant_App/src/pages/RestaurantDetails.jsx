@@ -4,9 +4,13 @@ import { useRestaurantContext } from "../contexts/RestaurantContext";
 import { Box, Button, IconButton, Typography } from "@mui/material";
 import { RatingCard } from "../components/RatingCard";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { useState } from "react";
+import { ReviewModal } from "../components/ReviewModal";
 export const RestaurantDetails = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { restaurantName } = useParams();
   const navigate = useNavigate();
+
   const { filteredRestaurants } = useRestaurantContext();
   const currentRestaurant = filteredRestaurants.find(
     (res) => res.name === restaurantName
@@ -16,8 +20,21 @@ export const RestaurantDetails = () => {
     .reduce((acc, { name }) => [...acc, name], [])
     .join(" ,");
 
+  //handlers
+  const openModalHandler = () => {
+    setIsModalOpen(true);
+  };
+  const closeModalHandler = () => {
+    setIsModalOpen(false);
+  };
+  console.log(isModalOpen);
   return (
     <>
+      <ReviewModal
+        restaurantId={currentRestaurant?.id}
+        isModalOpen={isModalOpen}
+        closeModalHandler={closeModalHandler}
+      />
       <Box
         sx={{
           maxWidth: "700px",
@@ -70,7 +87,11 @@ export const RestaurantDetails = () => {
             </Typography>
           </Box>
           <Box>
-            <Button variant="contained" color="primary">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={openModalHandler}
+            >
               Add Review
             </Button>
           </Box>

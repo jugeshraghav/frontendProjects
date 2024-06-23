@@ -14,6 +14,17 @@ export const RestaurantContextProvider = ({ children }) => {
           return selectedCuisine.id === restaurant.cuisine_id;
         })
       : restaurants;
+
+  //handlers
+  const addReviewHandler = (review, restaurantId) => {
+    const updatedRestaurants = restaurants.map((restaurant) =>
+      restaurant.id === restaurantId
+        ? { ...restaurant, ratings: [...restaurant.ratings, review] }
+        : { ...restaurant }
+    );
+
+    setRestaurants(updatedRestaurants);
+  };
   return (
     <RestaurantContext.Provider
       value={{
@@ -21,6 +32,7 @@ export const RestaurantContextProvider = ({ children }) => {
         cuisines,
         selectedCuisine,
         setSelectedCuisine,
+        addReviewHandler,
       }}
     >
       {children}
