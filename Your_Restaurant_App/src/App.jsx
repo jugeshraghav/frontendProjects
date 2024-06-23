@@ -10,7 +10,10 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/restaurant_details" element={<RestaurantDetails />} />
+          <Route
+            path="/restaurant_details/:restaurantName"
+            element={<RestaurantDetails />}
+          />
         </Routes>
       </Container>
     </>
