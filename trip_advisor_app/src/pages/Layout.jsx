@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { Container, Box } from "@mui/material";
 import { Navbar } from "../components/Navbar";
+
 export const Layout = () => {
   return (
     <>
@@ -11,14 +11,14 @@ export const Layout = () => {
           height: "100vh",
           display: "flex",
           flexDirection: "column",
-          gap: "4",
+          gap: "30px",
         }}
       >
         <Navbar />
 
         <div
           style={{
-            height: "100vh",
+            // height: "100vh",
             width: "100vw",
             display: "flex",
             justifyContent: "center",

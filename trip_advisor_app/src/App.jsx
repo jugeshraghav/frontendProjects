@@ -15,7 +15,7 @@ function App() {
           <Route path="/:continentId" element={<Countries />} />
           <Route path="/:continentId/:countryId" element={<Destinations />} />
           <Route
-            path="/:continentId/:countryId/:destiantionId"
+            path="/:continentId/:countryId/:destinationId"
             element={<DestinationDetails />}
           />
         </Route>

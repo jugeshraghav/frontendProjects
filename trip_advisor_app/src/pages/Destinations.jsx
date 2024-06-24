@@ -1,7 +1,7 @@
 import { useTripAdvisorContext } from "../Contexts/TripAdvisorContext";
 import { useNavigate, useParams } from "react-router-dom";
 import { Card } from "../components/Card";
-
+import { AiOutlineArrowLeft } from "react-icons/ai";
 export const Destinations = () => {
   const { continentId, countryId } = useParams();
   const { data } = useTripAdvisorContext();
@@ -29,6 +29,24 @@ export const Destinations = () => {
           alignItems: "center",
         }}
       >
+        {/* Back Button */}
+        <div>
+          <AiOutlineArrowLeft
+            style={{
+              //   display: "inline",
+              width: "40px",
+              height: "40px",
+              position: "absolute",
+              top: "80px",
+              left: "10px",
+              color: "white",
+              backgroundColor: "blue",
+              borderRadius: "100%",
+              cursor: "pointer",
+            }}
+            onClick={() => navigate(-1)}
+          />
+        </div>
         {/* homepage header */}
         <div>
           <p style={{ color: "blue", fontSize: "15px" }}>
@@ -36,7 +54,7 @@ export const Destinations = () => {
           </p>
         </div>
 
-        {/* continents displayed */}
+        {/* destinations displayed */}
         <div
           style={{
             display: "flex",
