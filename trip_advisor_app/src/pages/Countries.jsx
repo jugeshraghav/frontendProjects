@@ -25,7 +25,7 @@ export const Countries = () => {
         {/* homepage header */}
         <div>
           <p style={{ color: "blue", fontSize: "15px" }}>
-            Top Contries in {currentContinent.name}!
+            Top Countries in {currentContinent.name}!
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export const Countries = () => {
               key={country.id}
               image={country.image}
               name={country.name}
-              onClick={() =>
+              onClickHandler={() =>
                 navigateToDestinationsHandler(continentId, country.id)
               }
             />
