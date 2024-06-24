@@ -9,6 +9,9 @@ export const Layout = () => {
           backgroundColor: "black",
           width: "100vw",
           height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          gap: "4",
         }}
       >
         <Navbar />
@@ -16,7 +19,7 @@ export const Layout = () => {
         <div
           style={{
             height: "100vh",
-            marginTop: "15vh",
+            width: "100vw",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",

@@ -13,8 +13,11 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Continents />} />
           <Route path="/:continentId" element={<Countries />} />
-          <Route path="/:countryId" element={<Destinations />} />
-          <Route path="/:destiantionId" element={<DestinationDetails />} />
+          <Route path="/:continentId/:countryId" element={<Destinations />} />
+          <Route
+            path="/:continentId/:countryId/:destiantionId"
+            element={<DestinationDetails />}
+          />
         </Route>
       </Routes>
     </>
