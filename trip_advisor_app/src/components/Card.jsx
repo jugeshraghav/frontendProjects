@@ -1,6 +1,6 @@
 import { GoLocation } from "react-icons/go";
 
-export const Card = ({ image, name }) => {
+export const Card = ({ image, name, onClickHandler }) => {
   return (
     <div
       style={{
@@ -9,6 +9,7 @@ export const Card = ({ image, name }) => {
         cursor: "pointer",
         borderRadius: "20px",
       }}
+      onClick={onClickHandler}
     >
       <img
         src={image}

@@ -7,6 +7,7 @@ export const Continents = () => {
   const continents = data.continents;
   const navigate = useNavigate();
   const navigateToCountriesHandler = (continentId) => {
+    console.log("from continent card");
     navigate(`/${continentId}`);
   };
   return (
@@ -61,7 +62,7 @@ export const Continents = () => {
               key={continent.id}
               image={continent.image}
               name={continent.name}
-              onClick={() => navigateToCountriesHandler(continent.id)}
+              onClickHandler={() => navigateToCountriesHandler(continent.id)}
             />
           ))}
         </div>
