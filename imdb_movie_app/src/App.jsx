@@ -1,16 +1,17 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Watchlist } from "./pages/Watchlist";
+import { Starred } from "./pages/Starred";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1 className="text-red-500">IMDB MOvie App</h1>
-      <h5>He</h5>
-      <p>Hello</p>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/watchlist" element={<Watchlist />} />
+        <Route path="/starred" element={<Starred />} />
+      </Routes>
     </>
   );
 }
