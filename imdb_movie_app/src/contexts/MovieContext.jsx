@@ -6,7 +6,9 @@ const MovieContext = createContext();
 export const MovieContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(movie_reducer, initial_state);
   return (
-    <MovieContext.Provider value={{ state }}>{children}</MovieContext.Provider>
+    <MovieContext.Provider value={{ state, dispatch }}>
+      {children}
+    </MovieContext.Provider>
   );
 };
 
