@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Filter } from "../components/FIlter";
 import { MovieCard } from "../components/MovieCard";
 import { useMovieContext } from "../contexts/MovieContext";
 import { MovieNotFound } from "./MovieNotFound";
+import { MovieModal } from "../components/MovieModal";
 
 export const Home = () => {
   const {
@@ -25,6 +27,7 @@ export const Home = () => {
 
   return (
     <>
+      <MovieModal />
       <Filter />
       <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
         {filteredMovies?.map((movie) => (

@@ -10,6 +10,7 @@ export const initial_state = {
     year: "",
     rating: "",
   },
+  isMovieModalOpen: false,
 };
 
 export const movie_reducer = (state, action) => {
@@ -37,6 +38,12 @@ export const movie_reducer = (state, action) => {
       return { ...state, filters: { ...state.filters, genre: payload } };
     case "SET_SEARCH":
       return { ...state, filters: { ...state.filters, search: payload } };
+    case "OPEN_MOVIE_MODAL":
+      return { ...state, isMovieModalOpen: true };
+    case "CLOSE_MOVIE_MODAL":
+      return { ...state, isMovieModalOpen: false };
+    case "ADD_MOVIE":
+      return { ...state, allMovies: [...state.allMovies, payload] };
     case "default":
       return state;
   }

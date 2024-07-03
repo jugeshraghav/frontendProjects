@@ -12,7 +12,7 @@ export const Starred = () => {
 
   return (
     <>
-      <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+      <div className=" mt-4 grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
         {starred?.map((movie) => (
           <MovieCard key={movie?.id} movie={movie} />
         ))}

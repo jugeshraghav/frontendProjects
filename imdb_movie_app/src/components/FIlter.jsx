@@ -18,11 +18,19 @@ export const Filter = () => {
     const text = e.target.value.toLowerCase();
     dispatch({ type: "SET_SEARCH", payload: text });
   };
+
+  const openMovieModalHandler = () => {
+    dispatch({ type: "OPEN_MOVIE_MODAL" });
+  };
+
   return (
     <>
       <div className="text-sm flex flex-col md:flex-row justify-between   gap-4 p-2 my-8">
         <div className="flex items-center gap-4">
-          <button className="  border-2 border-gray-400 rounded-lg p-2 bg-gray-500 text-yellow-500">
+          <button
+            className="  border-2 border-gray-400 rounded-lg p-2 bg-gray-500 text-yellow-500"
+            onClick={() => openMovieModalHandler()}
+          >
             Add Movie
           </button>
           {/* Search */}
@@ -30,7 +38,7 @@ export const Filter = () => {
             <input
               type="text"
               className="border rounded-lg p-2"
-              placeholder="enter title or  director"
+              placeholder="enter title, cast or director"
               onChange={setSearchTextHandler}
             ></input>
           </div>
