@@ -29,6 +29,14 @@ export const movie_reducer = (state, action) => {
         ...state,
         watchlist: state.watchlist.filter((movie) => movie.id !== payload.id),
       };
+    case "SET_RATING":
+      return { ...state, filters: { ...state.filters, rating: payload } };
+    case "SET_YEAR":
+      return { ...state, filters: { ...state.filters, year: payload } };
+    case "SET_GENRE":
+      return { ...state, filters: { ...state.filters, genre: payload } };
+    case "SET_SEARCH":
+      return { ...state, filters: { ...state.filters, search: payload } };
     case "default":
       return state;
   }
