@@ -1,6 +1,6 @@
 import { movies } from "../constants/data";
 
-const initial_state = {
+export const initial_state = {
   allMovies: movies,
   watchlist: [],
   starred: [],
@@ -10,4 +10,12 @@ const initial_state = {
     year: "",
     rating: "",
   },
+};
+
+export const movie_reducer = (state, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    case "default":
+      return state;
+  }
 };

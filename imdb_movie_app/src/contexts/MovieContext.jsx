@@ -1,12 +1,12 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useReducer } from "react";
+import { initial_state, movie_reducer } from "../reducers/movieReducer";
 
 const MovieContext = createContext();
 
 export const MovieContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(movie_reducer, initial_state);
   return (
-    <MovieContext.Provider value={{ item: 4 }}>
-      {children}
-    </MovieContext.Provider>
+    <MovieContext.Provider value={{ state }}>{children}</MovieContext.Provider>
   );
 };
 
