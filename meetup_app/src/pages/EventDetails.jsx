@@ -25,7 +25,12 @@ export const EventDetails = () => {
     price,
     additionalInformation: { dressCode, ageRestrictions },
   } = currentEvent;
-
+  const updatedEventStartTime = new Date(eventStartTime)
+    .toLocaleString()
+    .toUpperCase();
+  const updatedEventEndTime = new Date(eventEndTime)
+    .toLocaleString()
+    .toUpperCase();
   const navigate = useNavigate();
   return (
     <>
@@ -93,7 +98,7 @@ export const EventDetails = () => {
                 <AiOutlineClockCircle />
               </span>
               <span>
-                {eventStartTime} to {eventEndTime}
+                {updatedEventStartTime} to {updatedEventEndTime}
               </span>
             </div>
             <div className="flex gap-2 items-center">
