@@ -7,7 +7,7 @@ export const EventCard = ({ event }) => {
   return (
     <>
       <div
-        className="w-60 min-h-72 shadow-lg bg-white p-2 cursor-pointer relative "
+        className="w-60 h-72 shadow-lg bg-white p-2 cursor-pointer relative "
         onClick={() => navigate(`/event-details/${id}`)}
       >
         {/* image */}

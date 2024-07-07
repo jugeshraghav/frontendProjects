@@ -10,7 +10,7 @@ export const Layout = () => {
           <Navbar />
         </div>
         {/* page */}
-        <div className="bg-gray-100 mt-16 min-h-[100vh]">
+        <div className="bg-gray-100 mt-16 min-h-[100vh] py-10">
           <Outlet />
         </div>
       </div>

@@ -1,12 +1,24 @@
-import { createContext, useContext, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { Data } from "../constants/data";
+import { initial_state, meetup_reducer } from "../reducers/meetup_reducer";
 
 const MeetupContext = createContext();
 
 export const MeetupContextProvider = ({ children }) => {
-  const [allEvents, setAllEvents] = useState(Data.meetups);
+  const [state, dispatch] = useReducer(meetup_reducer, initial_state);
+
+  const { allEvents, searchText, eventTypeSelected } = state;
+
   return (
-    <MeetupContext.Provider value={{ allEvents }}>
+    <MeetupContext.Provider
+      value={{ allEvents, dispatch, searchText, eventTypeSelected }}
+    >
       {children}
     </MeetupContext.Provider>
   );
