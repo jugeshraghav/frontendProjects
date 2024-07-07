@@ -42,33 +42,31 @@ export const DestinationDetails = () => {
             onClick={() => navigate(-1)}
           />
         </div>
-        {/* homepage header */}
+        {/* Destination header */}
         <div>
           <p style={{ color: "blue", fontSize: "30px" }}>
             {currentDestination.name}!
           </p>
         </div>
 
-        {/* destination displayed */}
+        {/* destination details */}
         <div
           style={{
-            // backgroundColor: "yellow",
-            width: "700px",
             display: "flex",
-            gap: "20px ",
-            justifyContent: "center",
+            flexDirection: "column",
             alignItems: "center",
-            flexWrap: "wrap",
-            marginTop: "20px",
+            padding: "20px",
           }}
         >
           <img
             src={currentDestination?.image}
             alt={currentDestination?.name}
-            width={350}
-            height={400}
+            style={{
+              width: "350px",
+              height: "350px",
+            }}
           />
-          <div style={{ fontSize: "15px" }}>
+          <div style={{ fontSize: "15px", maxWidth: "400px" }}>
             <p>
               <span style={{ color: "blue" }}>Name : </span>{" "}
               <span style={{ color: "white" }}>

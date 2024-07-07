@@ -8,6 +8,7 @@ export const Card = ({ image, name, onClickHandler }) => {
         height: "300px",
         cursor: "pointer",
         borderRadius: "20px",
+        position: "relative",
       }}
       onClick={onClickHandler}
     >

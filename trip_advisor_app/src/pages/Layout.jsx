@@ -4,25 +4,18 @@ import { Navbar } from "../components/Navbar";
 export const Layout = () => {
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "black",
-          width: "100vw",
-          height: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          gap: "30px",
-        }}
-      >
+      <div>
         <Navbar />
 
         <div
           style={{
-            // height: "100vh",
-            width: "100vw",
+            backgroundColor: "black",
+            minHeight: "100vh",
+            minWidth: "99vw",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "start",
+            paddingBottom: "10px",
           }}
         >
           <Outlet />
