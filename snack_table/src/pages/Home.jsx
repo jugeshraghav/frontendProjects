@@ -1,18 +1,98 @@
+import { AiOutlineArrowDown } from "react-icons/ai";
+import { AiOutlineArrowUp } from "react-icons/ai";
 import { useState } from "react";
 import { snacks } from "../constants/data";
+
+const tableHeaderDetails = [
+  {
+    columnName: "id",
+    coulumnDisplayName: "ID",
+    sortable: true,
+  },
+  {
+    columnName: "product_name",
+    coulumnDisplayName: "PRODUCT NAME",
+    sortable: true,
+  },
+  {
+    columnName: "product_weight",
+    coulumnDisplayName: "PRODUCT WEIGHT",
+    sortable: true,
+  },
+  {
+    columnName: "price",
+    coulumnDisplayName: "PRICE(INR)",
+    sortable: true,
+  },
+  {
+    columnName: "calories",
+    coulumnDisplayName: "CALORIES",
+    sortable: true,
+  },
+  {
+    columnName: "ingredients",
+    coulumnDisplayName: "INGREDIENTS",
+    sortable: false,
+  },
+];
 
 export const Home = () => {
   const [allSnacks, setAllSnacks] = useState(snacks);
   const [searchText, setSearchText] = useState("");
+  const [columnSorted, setColumnSorted] = useState("");
+  const [sortingOrder, setSortingOrder] = useState("");
+
+  //handlers
+  const handleSort = (columnName) => {
+    if (columnSorted === columnName) {
+      setSortingOrder(sortingOrder === "asc" ? "desc" : "asc");
+    } else {
+      setColumnSorted(columnName);
+      setSortingOrder("asc");
+    }
+  };
+
+  //
   const filteredSnacks = allSnacks.filter((snack) => {
     return (
-      searchText === "" ||
       snack.product_name.toLowerCase().includes(searchText.toLowerCase()) ||
       snack.ingredients.some((ingredient) =>
         ingredient.toLowerCase().includes(searchText.toLowerCase())
       )
     );
   });
+
+  const sortedSnacks = [...filteredSnacks].sort((a, b) => {
+    const columnA = a[columnSorted];
+    const columnB = b[columnSorted];
+
+    if (columnA === columnB) return 0;
+
+    if (sortingOrder === "asc") {
+      if (typeof columnA === "string") {
+        return columnA.localeCompare(columnB);
+      } else {
+        return columnA - columnB;
+      }
+    } else {
+      if (typeof columnB === "string") {
+        return columnB.localeCompare(columnA);
+      } else {
+        return columnB - columnA;
+      }
+    }
+  });
+
+  const sortOrderIcon =
+    sortingOrder === "asc" ? (
+      <AiOutlineArrowUp />
+    ) : sortingOrder === "desc" ? (
+      <AiOutlineArrowDown />
+    ) : (
+      ""
+    );
+  console.log(sortOrderIcon);
+  console.log(sortingOrder);
   return (
     <>
       <div>
@@ -36,17 +116,21 @@ export const Home = () => {
         <table>
           <thead>
             <tr>
-              <th>Id</th>
-              <th>Product Name</th>
-              <th>Product Weight</th>
-              <th>Price(INR)</th>
-              <th>Calories</th>
-              <th>Ingredients</th>
+              {tableHeaderDetails.map(
+                ({ columnName, coulumnDisplayName, sortable }) => (
+                  <th key={columnName} onClick={() => handleSort(columnName)}>
+                    {coulumnDisplayName}
+                    <span>
+                      {columnSorted === columnName && sortable && sortOrderIcon}
+                    </span>
+                  </th>
+                )
+              )}
             </tr>
           </thead>
           <tbody>
-            {filteredSnacks.length > 0 ? (
-              filteredSnacks.map(
+            {sortedSnacks.length > 0 ? (
+              sortedSnacks.map(
                 ({
                   id,
                   product_name,
