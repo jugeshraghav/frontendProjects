@@ -2,7 +2,7 @@ import { AiOutlineArrowDown } from "react-icons/ai";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { useState } from "react";
 import { snacks } from "../constants/data";
-
+import "../App.css";
 const tableHeaderDetails = [
   {
     columnName: "id",
@@ -95,7 +95,7 @@ export const Home = () => {
   console.log(sortingOrder);
   return (
     <>
-      <div>
+      <div className="snack-table-container">
         {/* navbar */}
         <nav>
           <h1>Snack Table</h1>
